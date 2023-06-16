@@ -15,6 +15,7 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import { AllColors } from 'src/global_equipments/Allcolors'
 
 const Login = () => {
   return (
@@ -46,12 +47,25 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
-                          Login
-                        </CButton>
+                        <Link to="/dashboard">
+                          <CButton
+                            color="primary"
+                            className="px-4"
+                            style={{
+                              backgroundColor: AllColors.appBackgroundColor,
+                              borderColor: AllColors.appBackgroundColor,
+                            }}
+                          >
+                            Login
+                          </CButton>
+                        </Link>
                       </CCol>
                       <CCol xs={6} className="text-right">
-                        <CButton color="link" className="px-0">
+                        <CButton
+                          color="link"
+                          className="px-0"
+                          style={{ color: AllColors.appBackgroundColor }}
+                        >
                           Forgot password?
                         </CButton>
                       </CCol>
@@ -59,7 +73,10 @@ const Login = () => {
                   </CForm>
                 </CCardBody>
               </CCard>
-              <CCard className="text-white bg-primary py-5" style={{ width: '44%' }}>
+              <CCard
+                className="text-white py-5"
+                style={{ width: '44%', backgroundColor: AllColors.appBackgroundColor }}
+              >
                 <CCardBody className="text-center">
                   <div>
                     <h2>Sign up</h2>
@@ -67,8 +84,20 @@ const Login = () => {
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                       tempor incididunt ut labore et dolore magna aliqua.
                     </p>
-                    <Link to="/register">
-                      <CButton color="primary" className="mt-3" active tabIndex={-1}>
+                    <Link
+                    // to="/register"
+                    >
+                      <CButton
+                        color="primary"
+                        className="mt-3"
+                        active
+                        tabIndex={-1}
+                        style={{
+                          backgroundColor: 'white',
+                          color: AllColors.appBackgroundColor,
+                          borderColor: AllColors.appBackgroundColor,
+                        }}
+                      >
                         Register Now!
                       </CButton>
                     </Link>

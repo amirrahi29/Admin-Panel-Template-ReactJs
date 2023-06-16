@@ -16,7 +16,7 @@ import { cilBell, cilEnvelopeOpen, cilList, cilMenu } from '@coreui/icons'
 import { AppBreadcrumb } from './index'
 import { AppHeaderDropdown } from './header/index'
 import { logo } from 'src/assets/brand/logo'
-import { AllColors } from 'src/assets/colors/Allcolors'
+import { AllColors } from 'src/global_equipments/Allcolors'
 
 const AppHeader = () => {
   const dispatch = useDispatch()

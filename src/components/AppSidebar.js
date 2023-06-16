@@ -9,7 +9,7 @@ import 'simplebar/dist/simplebar.min.css'
 // sidebar nav config
 import navigation from '../_nav'
 //colors
-import { AllColors } from 'src/assets/colors/Allcolors'
+import { AllColors } from 'src/global_equipments/Allcolors'
 
 const AppSidebar = () => {
   const dispatch = useDispatch()
