@@ -16,6 +16,7 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 import { AllColors } from 'src/global_equipments/Allcolors'
+import '../../../global_equipments/App.css'
 
 const Login = () => {
   return (
