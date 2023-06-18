@@ -5,36 +5,3 @@
     height: 100vh;
   }
   
-
-  .container {
-    position: relative;
-  }
-  
-  .marquee-container {
-    position: relative;
-    overflow: hidden;
-    height: 120px; /* Adjust the height as needed */
-  }
-  
-  .marquee {
-    display: flex;
-    animation: marquee-animation 20s linear infinite;
-    white-space: nowrap;
-  }
-  
-  @keyframes marquee-animation {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  
-  .marquee img {
-    height: 100px;
-    width: 100px;
-    border-radius: 100px;
-    border: 1px solid grey;
-  }
-  
