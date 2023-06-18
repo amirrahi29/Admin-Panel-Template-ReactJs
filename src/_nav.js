@@ -1,6 +1,10 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import { cilBell, cilCursor, cilNotes, cilPuzzle, cilSpeedometer, cilStar } from '@coreui/icons'
+import {
+  cilPeople, cilNotes, cilHome, cilSpeedometer,
+  cilSettings, cilEnvelopeClosed, cilDollar, cilCarAlt, cilClipboard,
+  cilList, cilVector, cilTruck, cilLocationPin, cilWc
+} from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const _nav = [
@@ -18,7 +22,7 @@ const _nav = [
     component: CNavGroup,
     name: 'Stores',
     to: '/store',
-    icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilHome} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -36,7 +40,7 @@ const _nav = [
     component: CNavGroup,
     name: 'Products',
     to: '/products',
-    icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilList} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -53,7 +57,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Orders',
-    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilClipboard} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -79,7 +83,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Payments',
-    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilDollar} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -105,7 +109,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Attributes',
-    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilVector} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -127,7 +131,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Vehicles',
-    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilCarAlt} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -148,7 +152,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Agents',
-    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilWc} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -165,7 +169,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Delivery Boys',
-    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilTruck} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -182,7 +186,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Users',
-    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -203,7 +207,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'Notifications',
-    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -230,7 +234,7 @@ const _nav = [
   {
     component: CNavGroup,
     name: 'E-mails',
-    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    icon: <CIcon icon={cilEnvelopeClosed} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
@@ -281,6 +285,18 @@ const _nav = [
         to: '/reviews/view_reviews',
       },
     ],
+  }, 
+  {
+    component: CNavItem,
+    name: 'Location Settings',
+    icon: <CIcon icon={cilLocationPin} customClassName="nav-icon" />,
+    to: '/location/update_locations',
+  },  
+  {
+    component: CNavItem,
+    name: 'Settings',
+    icon: <CIcon icon={cilSettings} customClassName="nav-icon" />,
+    to: '/settings/update_settings',
   },
 ]
 
