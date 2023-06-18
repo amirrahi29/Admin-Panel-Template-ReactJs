@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
+import { CSpinner } from '@coreui/react';
+import { AllColors } from 'src/global_equipments/Allcolors';
 
 const ViewStore = () => {
   const [products, setProducts] = useState([]);
@@ -65,7 +67,7 @@ const ViewStore = () => {
   ];
 
   return (
-    <div>
+    <>
       {selectedRows.length > 0 ?
         <p style={{ marginLeft: 20, marginBottom: 0 }}>
           SELECTED ITEMS<hr style={{ margin: 0, padding: 0 }} />
@@ -81,35 +83,46 @@ const ViewStore = () => {
           : null}
       </ul>
 
-      <DataTable
-        title='All Stores'
-        data={filteredProducts}
-        columns={columns}
-        pagination
-        fixedHeader
-        fixedHeaderScrollHeight='450px'
-        selectableRows
-        selectableRowsHighlight
-        highlightOnHover
-        actions={
-          <button className="btn btn-sm btn-info">Export</button>
-        }
-        subHeader
-        subHeaderAlign='left'
-        subHeaderComponent={
-          <input type='text'
-            value={search}
-            placeholder='Search here'
-            className='w-25 form-control'
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        }
-        conditionalRowStyles={conditionalRowStyles}
-        onSelectedRowsChange={handleSelectedRowsChange}
-      />
-
-    </div>
-  )
-}
+      {filteredProducts.length > 0 ? (
+        <DataTable
+          title='All Stores'
+          data={filteredProducts}
+          columns={columns}
+          pagination
+          fixedHeader
+          fixedHeaderScrollHeight='450px'
+          selectableRows
+          selectableRowsHighlight
+          highlightOnHover
+          actions={<button className="btn btn-sm btn-info">Export</button>}
+          subHeader
+          subHeaderAlign='left'
+          subHeaderComponent={
+            <input
+              type='text'
+              value={search}
+              placeholder='Search here'
+              className='w-25 form-control'
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          }
+          conditionalRowStyles={conditionalRowStyles}
+          onSelectedRowsChange={handleSelectedRowsChange}
+        />
+      ) : (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+          }}
+        >
+          <CSpinner style={{ color: AllColors.appBackgroundColor }} />
+        </div>
+      )}
+    </>
+  );
+};
 
 export default ViewStore;
