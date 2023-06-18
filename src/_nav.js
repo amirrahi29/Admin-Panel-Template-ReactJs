@@ -1,16 +1,6 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-import {
-  cilBell,
-  cilCalculator,
-  cilChartPie,
-  cilCursor,
-  cilDescription,
-  cilNotes,
-  cilPuzzle,
-  cilSpeedometer,
-  cilStar,
-} from '@coreui/icons'
+import { cilBell, cilCursor, cilNotes, cilPuzzle, cilSpeedometer, cilStar } from '@coreui/icons'
 import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const _nav = [
@@ -25,172 +15,50 @@ const _nav = [
     },
   },
   {
-    component: CNavTitle,
-    name: 'Components',
-  },
-  {
     component: CNavGroup,
-    name: 'Base',
-    to: '/base',
+    name: 'Stores',
+    to: '/store',
     icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'Accordion',
-        to: '/base/accordion',
+        name: 'Add Store',
+        to: '/store/add_store',
       },
       {
         component: CNavItem,
-        name: 'Breadcrumb',
-        to: '/base/breadcrumbs',
-      },
-      {
-        component: CNavItem,
-        name: 'Cards',
-        to: '/base/cards',
-      },
-      {
-        component: CNavItem,
-        name: 'Carousel',
-        to: '/base/carousels',
-      },
-      {
-        component: CNavItem,
-        name: 'Collapse',
-        to: '/base/collapses',
-      },
-      {
-        component: CNavItem,
-        name: 'List group',
-        to: '/base/list-groups',
-      },
-      {
-        component: CNavItem,
-        name: 'Navs & Tabs',
-        to: '/base/navs',
-      },
-      {
-        component: CNavItem,
-        name: 'Pagination',
-        to: '/base/paginations',
-      },
-      {
-        component: CNavItem,
-        name: 'Placeholders',
-        to: '/base/placeholders',
-      },
-      {
-        component: CNavItem,
-        name: 'Popovers',
-        to: '/base/popovers',
-      },
-      {
-        component: CNavItem,
-        name: 'Progress',
-        to: '/base/progress',
-      },
-      {
-        component: CNavItem,
-        name: 'Spinners',
-        to: '/base/spinners',
-      },
-      {
-        component: CNavItem,
-        name: 'Tables',
-        to: '/base/tables',
-      },
-      {
-        component: CNavItem,
-        name: 'Tooltips',
-        to: '/base/tooltips',
+        name: 'View Store',
+        to: '/store/view_store',
       },
     ],
   },
   {
     component: CNavGroup,
-    name: 'Buttons',
-    to: '/buttons',
+    name: 'Products',
+    to: '/products',
     icon: <CIcon icon={cilCursor} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'Buttons',
-        to: '/buttons/buttons',
+        name: 'Add Product',
+        to: '/products/add_product',
       },
       {
         component: CNavItem,
-        name: 'Buttons groups',
-        to: '/buttons/button-groups',
-      },
-      {
-        component: CNavItem,
-        name: 'Dropdowns',
-        to: '/buttons/dropdowns',
+        name: 'View Product',
+        to: '/products/view_product',
       },
     ],
   },
   {
     component: CNavGroup,
-    name: 'Forms',
-    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
-    items: [
-      {
-        component: CNavItem,
-        name: 'Form Control',
-        to: '/forms/form-control',
-      },
-      {
-        component: CNavItem,
-        name: 'Select',
-        to: '/forms/select',
-      },
-      {
-        component: CNavItem,
-        name: 'Checks & Radios',
-        to: '/forms/checks-radios',
-      },
-      {
-        component: CNavItem,
-        name: 'Range',
-        to: '/forms/range',
-      },
-      {
-        component: CNavItem,
-        name: 'Input Group',
-        to: '/forms/input-group',
-      },
-      {
-        component: CNavItem,
-        name: 'Floating Labels',
-        to: '/forms/floating-labels',
-      },
-      {
-        component: CNavItem,
-        name: 'Layout',
-        to: '/forms/layout',
-      },
-      {
-        component: CNavItem,
-        name: 'Validation',
-        to: '/forms/validation',
-      },
-    ],
-  },
-  {
-    component: CNavItem,
-    name: 'Charts',
-    to: '/charts',
-    icon: <CIcon icon={cilChartPie} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavGroup,
-    name: 'Icons',
+    name: 'Orders',
     icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'CoreUI Free',
-        to: '/icons/coreui-icons',
+        name: 'All Orders',
+        to: '/orders/all_orders',
         badge: {
           color: 'success',
           text: 'NEW',
@@ -198,15 +66,139 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'CoreUI Flags',
-        to: '/icons/flags',
+        name: 'Pendings',
+        to: '/orders/pending_orders',
       },
       {
         component: CNavItem,
-        name: 'CoreUI Brands',
-        to: '/icons/brands',
+        name: 'Completed',
+        to: '/orders/completed_orders',
       },
     ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Payments',
+    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'All Payments',
+        to: '/payments/all_payments',
+        badge: {
+          color: 'success',
+          text: 'NEW',
+        },
+      },
+      {
+        component: CNavItem,
+        name: 'Pendings',
+        to: '/payments/pending_payments',
+      },
+      {
+        component: CNavItem,
+        name: 'Completed',
+        to: '/payments/completed_payments',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Attributes',
+    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Category',
+        to: '/attributes/category',
+      },
+      {
+        component: CNavItem,
+        name: 'Sub Category',
+        to: '/attributes/sub_category',
+      },
+      {
+        component: CNavItem,
+        name: 'Color',
+        to: '/attributes/color',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Vehicles',
+    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Add Vehicles',
+        to: '/vehicles/add_vehicles',
+      },
+      {
+        component: CNavItem,
+        name: 'View Vehicles',
+        to: '/vehicles/view_vehicles',
+      },
+    ],
+  },
+  {
+    component: CNavTitle,
+    name: 'Members',
+  },
+  {
+    component: CNavGroup,
+    name: 'Agents',
+    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Add Agents',
+        to: '/agents/add_agent',
+      },
+      {
+        component: CNavItem,
+        name: 'View Agents',
+        to: '/agents/view_agents',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Delivery Boys',
+    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Add Delivery Boys',
+        to: '/delivery_boys/add_delivery_boys',
+      },
+      {
+        component: CNavItem,
+        name: 'View Delivery Boys',
+        to: '/delivery_boys/view_delivery_boys',
+      },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Users',
+    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Add Users',
+        to: '/users/add_users',
+      },
+      {
+        component: CNavItem,
+        name: 'View Users',
+        to: '/users/view_users',
+      },
+    ],
+  },
+  {
+    component: CNavTitle,
+    name: 'Communications',
   },
   {
     component: CNavGroup,
@@ -215,40 +207,52 @@ const _nav = [
     items: [
       {
         component: CNavItem,
-        name: 'Alerts',
-        to: '/notifications/alerts',
+        name: 'Agents',
+        to: '/notifications/agent_notification',
       },
       {
         component: CNavItem,
-        name: 'Badges',
-        to: '/notifications/badges',
+        name: 'Delivery Boys',
+        to: '/notifications/delivery_boy_notification',
       },
       {
         component: CNavItem,
-        name: 'Modal',
-        to: '/notifications/modals',
+        name: 'Stores',
+        to: '/notifications/store_notification',
       },
       {
         component: CNavItem,
-        name: 'Toasts',
-        to: '/notifications/toasts',
-      },
-      {
-        component: CNavItem,
-        name: 'Toasts Amir',
-        to: '/notifications/toastsAmir',
+        name: 'Users',
+        to: '/notifications/user_notification',
       },
     ],
   },
   {
-    component: CNavItem,
-    name: 'Widgets',
-    to: '/widgets',
-    icon: <CIcon icon={cilCalculator} customClassName="nav-icon" />,
-    badge: {
-      color: 'info',
-      text: 'NEW',
-    },
+    component: CNavGroup,
+    name: 'E-mails',
+    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Agents',
+        to: '/emails/agent_notification',
+      },
+      {
+        component: CNavItem,
+        name: 'Delivery Boys',
+        to: '/email/delivery_boy_notification',
+      },
+      {
+        component: CNavItem,
+        name: 'Stores',
+        to: '/emails/store_notification',
+      },
+      {
+        component: CNavItem,
+        name: 'Users',
+        to: '/emails/user_notification',
+      },
+    ],
   },
   {
     component: CNavTitle,
@@ -256,36 +260,27 @@ const _nav = [
   },
   {
     component: CNavGroup,
-    name: 'Pages',
-    icon: <CIcon icon={cilStar} customClassName="nav-icon" />,
+    name: 'Queries',
+    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
     items: [
       {
         component: CNavItem,
-        name: 'Login',
-        to: '/login',
-      },
-      {
-        component: CNavItem,
-        name: 'Register',
-        to: '/register',
-      },
-      {
-        component: CNavItem,
-        name: 'Error 404',
-        to: '/404',
-      },
-      {
-        component: CNavItem,
-        name: 'Error 500',
-        to: '/500',
+        name: 'View Queries',
+        to: '/queries/view_queries',
       },
     ],
   },
   {
-    component: CNavItem,
-    name: 'Docs',
-    href: 'https://coreui.io/react/docs/templates/installation/',
-    icon: <CIcon icon={cilDescription} customClassName="nav-icon" />,
+    component: CNavGroup,
+    name: 'Reviews',
+    icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'View Reviews',
+        to: '/reviews/view_reviews',
+      },
+    ],
   },
 ]
 

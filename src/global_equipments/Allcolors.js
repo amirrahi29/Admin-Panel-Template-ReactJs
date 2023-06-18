@@ -1,3 +1,3 @@
 export const AllColors = {
-  appBackgroundColor: '#dc3545',
+  appBackgroundColor: 'green',
 }

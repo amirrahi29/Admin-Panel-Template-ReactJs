@@ -2,96 +2,196 @@ import React from 'react'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 
-// Base
-const Accordion = React.lazy(() => import('./views/base/accordion/Accordion'))
-const Breadcrumbs = React.lazy(() => import('./views/base/breadcrumbs/Breadcrumbs'))
-const Cards = React.lazy(() => import('./views/base/cards/Cards'))
-const Carousels = React.lazy(() => import('./views/base/carousels/Carousels'))
-const Collapses = React.lazy(() => import('./views/base/collapses/Collapses'))
-const ListGroups = React.lazy(() => import('./views/base/list-groups/ListGroups'))
-const Navs = React.lazy(() => import('./views/base/navs/Navs'))
-const Paginations = React.lazy(() => import('./views/base/paginations/Paginations'))
-const Placeholders = React.lazy(() => import('./views/base/placeholders/Placeholders'))
-const Popovers = React.lazy(() => import('./views/base/popovers/Popovers'))
-const Progress = React.lazy(() => import('./views/base/progress/Progress'))
-const Spinners = React.lazy(() => import('./views/base/spinners/Spinners'))
-const Tables = React.lazy(() => import('./views/base/tables/Tables'))
-const Tooltips = React.lazy(() => import('./views/base/tooltips/Tooltips'))
+//stores
+const AddStore = React.lazy(() => import('./views/stores/AddStore'))
+const ViewStore = React.lazy(() => import('./views/stores/ViewStore'))
 
-// Buttons
-const Buttons = React.lazy(() => import('./views/buttons/buttons/Buttons'))
-const ButtonGroups = React.lazy(() => import('./views/buttons/button-groups/ButtonGroups'))
-const Dropdowns = React.lazy(() => import('./views/buttons/dropdowns/Dropdowns'))
+//products
+const AddProduct = React.lazy(() => import('./views/products/AddProduct'))
+const ViewProduct = React.lazy(() => import('./views/products/ViewProduct'))
 
-//Forms
-const ChecksRadios = React.lazy(() => import('./views/forms/checks-radios/ChecksRadios'))
-const FloatingLabels = React.lazy(() => import('./views/forms/floating-labels/FloatingLabels'))
-const FormControl = React.lazy(() => import('./views/forms/form-control/FormControl'))
-const InputGroup = React.lazy(() => import('./views/forms/input-group/InputGroup'))
-const Layout = React.lazy(() => import('./views/forms/layout/Layout'))
-const Range = React.lazy(() => import('./views/forms/range/Range'))
-const Select = React.lazy(() => import('./views/forms/select/Select'))
-const Validation = React.lazy(() => import('./views/forms/validation/Validation'))
+//attributes
+const Category = React.lazy(() => import('./views/attributes/Category'))
+const SubCategory = React.lazy(() => import('./views/attributes/SubCategory'))
+const Color = React.lazy(() => import('./views/attributes/Color'))
 
-const Charts = React.lazy(() => import('./views/charts/Charts'))
-
-// Icons
-const CoreUIIcons = React.lazy(() => import('./views/icons/coreui-icons/CoreUIIcons'))
-const Flags = React.lazy(() => import('./views/icons/flags/Flags'))
-const Brands = React.lazy(() => import('./views/icons/brands/Brands'))
+//orders
+const AllOrders = React.lazy(() => import('./views/orders/AllOrders'))
+const PendingOrders = React.lazy(() => import('./views/orders/PendingOrders'))
+const CompletedOrders = React.lazy(() => import('./views/orders/CompletedOrders'))
 
 // Notifications
-const Alerts = React.lazy(() => import('./views/notifications/alerts/Alerts'))
-const Badges = React.lazy(() => import('./views/notifications/badges/Badges'))
-const Modals = React.lazy(() => import('./views/notifications/modals/Modals'))
-const Toasts = React.lazy(() => import('./views/notifications/toasts/Toasts'))
-const ToastsAmir = React.lazy(() => import('./views/notifications/toasts/ToastsAmir'))
+const UserNotification = React.lazy(() => import('./views/notifications/UserNotification'))
+const AgentNotification = React.lazy(() => import('./views/notifications/AgentNotification'))
+const DeliveryBoyNotification = React.lazy(() =>
+  import('./views/notifications/DeliveryBoyNotification'),
+)
+const StoreNotification = React.lazy(() => import('./views/notifications/StoreNotification'))
 
-const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
+// Emails
+const UserEmail = React.lazy(() => import('./views/emails/UserEmail'))
+const AgentEmail = React.lazy(() => import('./views/emails/AgentEmail'))
+const DeliveryBoyEmail = React.lazy(() => import('./views/emails/DeliveryBoyEmail'))
+const StoreEmail = React.lazy(() => import('./views/emails/StoreEmail'))
+
+//Agents
+const AddAgent = React.lazy(() => import('./views/agents/AddAgent'))
+const ViewAgent = React.lazy(() => import('./views/agents/ViewAgents'))
+
+//Delivery Boys
+const AddDeliveryBoys = React.lazy(() => import('./views/delivery_boys/AddDeliveryBoys'))
+const ViewDeliveryBoys = React.lazy(() => import('./views/delivery_boys/ViewDeliveryBoys'))
+
+//Users
+const AddUsers = React.lazy(() => import('./views/users/AddUsers'))
+const ViewUsers = React.lazy(() => import('./views/users/ViewUsers'))
+
+//vehicles
+const AddVehicles = React.lazy(() => import('./views/vehicles/AddVehicles'))
+const ViewVehicles = React.lazy(() => import('./views/vehicles/ViewVehicles'))
+
+//payments
+const AllPayments = React.lazy(() => import('./views/payments/AllPayments'))
+const PendingPayments = React.lazy(() => import('./views/payments/PendingPayments'))
+const CompletedPayments = React.lazy(() => import('./views/payments/CompletedPayments'))
+
+//queries
+const ViewQueries = React.lazy(() => import('./views/queries/ViewQueries'))
+
+//reviews
+const ViewReviews = React.lazy(() => import('./views/reviews/ViewReviews'))
 
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
-  { path: '/base', name: 'Base', element: Cards, exact: true },
-  { path: '/base/accordion', name: 'Accordion', element: Accordion },
-  { path: '/base/breadcrumbs', name: 'Breadcrumbs', element: Breadcrumbs },
-  { path: '/base/cards', name: 'Cards', element: Cards },
-  { path: '/base/carousels', name: 'Carousel', element: Carousels },
-  { path: '/base/collapses', name: 'Collapse', element: Collapses },
-  { path: '/base/list-groups', name: 'List Groups', element: ListGroups },
-  { path: '/base/navs', name: 'Navs', element: Navs },
-  { path: '/base/paginations', name: 'Paginations', element: Paginations },
-  { path: '/base/placeholders', name: 'Placeholders', element: Placeholders },
-  { path: '/base/popovers', name: 'Popovers', element: Popovers },
-  { path: '/base/progress', name: 'Progress', element: Progress },
-  { path: '/base/spinners', name: 'Spinners', element: Spinners },
-  { path: '/base/tables', name: 'Tables', element: Tables },
-  { path: '/base/tooltips', name: 'Tooltips', element: Tooltips },
-  { path: '/buttons', name: 'Buttons', element: Buttons, exact: true },
-  { path: '/buttons/buttons', name: 'Buttons', element: Buttons },
-  { path: '/buttons/dropdowns', name: 'Dropdowns', element: Dropdowns },
-  { path: '/buttons/button-groups', name: 'Button Groups', element: ButtonGroups },
-  { path: '/charts', name: 'Charts', element: Charts },
-  { path: '/forms', name: 'Forms', element: FormControl, exact: true },
-  { path: '/forms/form-control', name: 'Form Control', element: FormControl },
-  { path: '/forms/select', name: 'Select', element: Select },
-  { path: '/forms/checks-radios', name: 'Checks & Radios', element: ChecksRadios },
-  { path: '/forms/range', name: 'Range', element: Range },
-  { path: '/forms/input-group', name: 'Input Group', element: InputGroup },
-  { path: '/forms/floating-labels', name: 'Floating Labels', element: FloatingLabels },
-  { path: '/forms/layout', name: 'Layout', element: Layout },
-  { path: '/forms/validation', name: 'Validation', element: Validation },
-  { path: '/icons', exact: true, name: 'Icons', element: CoreUIIcons },
-  { path: '/icons/coreui-icons', name: 'CoreUI Icons', element: CoreUIIcons },
-  { path: '/icons/flags', name: 'Flags', element: Flags },
-  { path: '/icons/brands', name: 'Brands', element: Brands },
-  { path: '/notifications', name: 'Notifications', element: Alerts, exact: true },
-  { path: '/notifications/alerts', name: 'Alerts', element: Alerts },
-  { path: '/notifications/badges', name: 'Badges', element: Badges },
-  { path: '/notifications/modals', name: 'Modals', element: Modals },
-  { path: '/notifications/toasts', name: 'Toasts', element: Toasts },
-  { path: '/notifications/toastsAmir', name: 'ToastsAmir', element: ToastsAmir },
-  { path: '/widgets', name: 'Widgets', element: Widgets },
+
+  //stores
+  { path: '/store/add_store', name: 'Add Store', element: AddStore },
+  { path: '/store/view_store', name: 'View Store', element: ViewStore },
+
+  //products
+  { path: '/products/add_product', name: 'Add Product', element: AddProduct },
+  { path: '/products/view_product', name: 'View Product', element: ViewProduct },
+
+  //attributes
+  { path: '/attributes/category', name: 'Category', element: Category },
+  { path: '/attributes/sub_category', name: 'Sub Category', element: SubCategory },
+  { path: '/attributes/color', name: 'Color', element: Color },
+
+  //orders
+  { path: '/orders/all_orders', name: 'All Orders', element: AllOrders },
+  { path: '/orders/pending_orders', name: 'Pending Orders', element: PendingOrders },
+  { path: '/orders/completed_orders', name: 'Completed Orders', element: CompletedOrders },
+
+  //payments
+  { path: '/payments/all_payments', name: 'All Payments', element: AllPayments },
+  { path: '/payments/pending_payments', name: 'Pending Payments', element: PendingPayments },
+  { path: '/payments/completed_payments', name: 'Completed Payments', element: CompletedPayments },
+
+  //notifications
+  {
+    path: '/notifications/agent_notification',
+    name: 'Send notifications to agent',
+    element: AgentNotification,
+  },
+  {
+    path: '/notifications/delivery_boy_notification',
+    name: 'Send notifications to Delivery Boy',
+    element: DeliveryBoyNotification,
+  },
+  {
+    path: '/notifications/store_notification',
+    name: 'Send notifications to Store',
+    element: StoreNotification,
+  },
+  {
+    path: '/notifications/user_notification',
+    name: 'Send notifications to user',
+    element: UserNotification,
+  },
+
+  //emails
+  {
+    path: '/emails/agent_notification',
+    name: 'Send emails to agent',
+    element: AgentEmail,
+  },
+  {
+    path: '/email/delivery_boy_notification',
+    name: 'Send emails to Delivery Boy',
+    element: DeliveryBoyEmail,
+  },
+  {
+    path: '/emails/store_notification',
+    name: 'Send emails to Store',
+    element: StoreEmail,
+  },
+  {
+    path: '/emails/user_notification',
+    name: 'Send emails to user',
+    element: UserEmail,
+  },
+
+  //agents
+  {
+    path: '/agents/add_agent',
+    name: 'Add agent',
+    element: AddAgent,
+  },
+  {
+    path: '/agents/view_agents',
+    name: 'View agent',
+    element: ViewAgent,
+  },
+
+  //delivery boys
+  {
+    path: '/delivery_boys/add_delivery_boys',
+    name: 'Add Delivery Boys',
+    element: AddDeliveryBoys,
+  },
+  {
+    path: '/delivery_boys/view_delivery_boys',
+    name: 'View Delivery Boys',
+    element: ViewDeliveryBoys,
+  },
+
+  //users
+  {
+    path: '/users/add_users',
+    name: 'Add Users',
+    element: AddUsers,
+  },
+  {
+    path: '/users/view_users',
+    name: 'View Users',
+    element: ViewUsers,
+  },
+
+  //vehicles
+  {
+    path: '/vehicles/add_vehicles',
+    name: 'Add Vehicles',
+    element: AddVehicles,
+  },
+  {
+    path: '/vehicles/view_vehicles',
+    name: 'View Vehicles',
+    element: ViewVehicles,
+  },
+
+  //queries
+  {
+    path: '/queries/view_queries',
+    name: 'View Queries',
+    element: ViewQueries,
+  },
+  //reviews
+  {
+    path: '/reviews/view_reviews',
+    name: 'View Reviews',
+    element: ViewReviews,
+  },
 ]
 
 export default routes
