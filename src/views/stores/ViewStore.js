@@ -9,6 +9,7 @@ const ViewStore = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [selectedRows, setSelectedRows] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getAllProducts();
@@ -16,19 +17,28 @@ const ViewStore = () => {
 
   useEffect(() => {
     const result = products.filter(product => {
-      return product.title.toLowerCase().match(search.toLowerCase());
+      return product.title.toLowerCase().includes(search.toLowerCase());
     });
     setFilteredProducts(result);
   }, [search]);
 
   const getAllProducts = async () => {
-    const response = await axios("https://fakestoreapi.com/products");
-    setProducts(response.data);
-    setFilteredProducts(response.data);
+    try {
+      const response = await axios("https://fakestoreapi.com/products");
+      setProducts(response.data);
+      setFilteredProducts(response.data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      setLoading(false);
+    }
   }
 
   const handleSelectedRowsChange = (state) => {
     setSelectedRows(state.selectedRows);
+    state.selectedRows.forEach(row => {
+      console.log(`Title: ${row.title}, ID: ${row.id}`);
+    });
   };
 
   const columns = [
@@ -68,29 +78,41 @@ const ViewStore = () => {
 
   return (
     <>
-      {selectedRows.length > 0 ?
+      {selectedRows.length > 0 && (
         <p style={{ marginLeft: 20, marginBottom: 0 }}>
-          SELECTED ITEMS<hr style={{ margin: 0, padding: 0 }} />
+          SELECTED ITEMS
+          <hr style={{ margin: 0, padding: 0 }} />
         </p>
-        : null}
+      )}
       <ul>
-        {selectedRows.length > 0 ?
+        {selectedRows.length > 0 && (
           <>
             {selectedRows.map(row => (
               <li key={row.id}>{row.title}</li>
             ))}
           </>
-          : null}
+        )}
       </ul>
 
-      {filteredProducts.length > 0 ? (
+      {loading ? (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+          }}
+        >
+          <CSpinner style={{ color: AllColors.appBackgroundColor }} />
+        </div>
+      ) : (
         <DataTable
           title='All Stores'
           data={filteredProducts}
           columns={columns}
           pagination
           fixedHeader
-          fixedHeaderScrollHeight='450px'
+          fixedHeaderScrollHeight='420px'
           selectableRows
           selectableRowsHighlight
           highlightOnHover
@@ -108,18 +130,21 @@ const ViewStore = () => {
           }
           conditionalRowStyles={conditionalRowStyles}
           onSelectedRowsChange={handleSelectedRowsChange}
+          noDataComponent={
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+              }}
+            >
+              {filteredProducts.length === 0 && products.length > 0 ? (
+                <p>No products found with the given search criteria.</p>
+              ) : null}
+            </div>
+          }
         />
-      ) : (
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh',
-          }}
-        >
-          <CSpinner style={{ color: AllColors.appBackgroundColor }} />
-        </div>
       )}
     </>
   );
